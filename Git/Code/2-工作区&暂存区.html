@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>工作区&暂存区</title>
+</head>
+<body>
+  <!-- 
+    工作区： 含有.git隐藏文件夹的文件夹 可以被Git管理起来
+      版本库：就是.git隐藏文件夹 
+        暂存区：在.git隐藏文件夹中的一个东西-- stage（或者叫index） 作用是暂存所有有修改的文件
+        master分支：该分支是Git为我们自动创建的， master分支称之为主分支
+        HEAD：指向master的一个指针
+
+
+    
+    如何把文件添加到Git的仓库中？
+      第一步：使用git add 把文件添加进去，实际上就是把文件修改添加到暂存区（多次add）
+      第二步：使用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支，也就是主分支-master（一次commit）
+
+    
+    查看工作区文件的状态 git status 
+    Untracked files: 未追踪的文件 意味着没有把文件添加到暂存区
+    Changes to be committed: 变更将要被提交 暂存区的文件没有被提交到仓库
+    nothing to commit, working tree clean：没有需要提交的文件，暂存区是干净的
+
+
+   -->
+</body>
+</html>

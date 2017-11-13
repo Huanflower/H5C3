@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>版本回退</title>
+</head>
+<body>
+  <!-- 
+    版本回退：
+
+      第一步： 使用 git log命令查看历史纪录  或者使用 git log --pretty=oneline 让历史记录显示一行
+               看到的类似d3fac24271943bfba298765e32b9b0088fdef7b1 是commit id
+    
+      第二步： 使用git reset --hard HEAD^ 回退到以当前版本为参考点的上一个版本
+
+      第三步(知道id)： 如果退回去之后又想回来 可以使用 git reset --hard id      id的名字写前几位就好了（一般前六位）
+
+      第四步(不知道id)： 使用 git reflog 来查看每次自己的命令
+    
+   -->
+</body>
+</html>
