@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	 key:  <input type="text" class="key">
+
+	 value: <input type="text" class="vl">
+
+	 <input type="button" value="设置" class="add">
+	 <input type="button" value="删除" class="remove">
+
+
+	  <script type="text/javascript">
+	  	  var add=document.querySelector(".add");
+	  	  var vl=document.querySelector(".vl");
+	  	  var key=document.querySelector(".key");
+	  	  var remove=document.querySelector(".remove");
+	  	  
+	  	  //设置(保存)
+	  	  
+	  	  add.onclick=function(){
+
+	  	  	  var key_name=key.value;
+	  	  	  var vl_text=vl.value;
+
+	  	  	  sessionStorage.setItem(key_name,vl_text);
+
+	  	  }
+
+	  	  //移除
+	  	  remove.onclick=function(){
+
+	  	  	 //通过键一次移除一条数据
+	  	  	 sessionStorage.removeItem(key.value);
+	  	  }
+
+	  </script>
+</body>
+</html>

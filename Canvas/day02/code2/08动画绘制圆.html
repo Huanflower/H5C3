@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+
+	 	 //约定绘制圆开始的角度是 -90
+	 	 var  s_angle=-90;
+
+	 	 var  e_angle=-90;
+
+	 	 //约定每次改变的角度大小 5
+	 	 var step=5;
+
+	   var  id=setInterval(function(){
+
+	 	 	//先清除画布
+	 	 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	 	 	//开始绘制图形
+	 	 	ctx.beginPath();
+	 	 	ctx.moveTo(300, 200);
+	 	 	ctx.arc(300, 200, 100, aTor(s_angle), aTor(e_angle));
+	 	 	ctx.fill();
+
+	 	 	//处理增量
+	 	 	e_angle+=step;
+
+	 	 	if(e_angle>270){
+
+	 	 		clearInterval(id);
+	 	 	}
+
+	 	 },20);
+
+
+	 	 function aTor ( angle ) {
+
+	 	 	 return  angle*Math.PI/180;
+	 	 }
+	 </script>
+</body>
+</html>

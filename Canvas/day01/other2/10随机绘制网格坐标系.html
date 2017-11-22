@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 ctx.beginPath();
+	 	 //绘制网格
+	 	 draw_table(20,ctx,canvas);
+	 	  
+	 	 ctx.beginPath();
+
+	 	 //绘制坐标系
+	 	 draw_axes(40,40,40,40,ctx,canvas);
+
+	 	 ctx.beginPath();
+
+	 	 //绘制三角形箭头
+	 	 draw_triangle(canvas,ctx);
+	 	 
+	 	 ctx.beginPath();
+
+	 	 //绘制一个10像素大小的点
+	 	 var square_w=6;
+
+	 	 var ary=[];
+
+	 	 //确定生成3到12个点
+	 	 var rnm=random(3,12);
+
+	 	 for(var i=0; i<rnm; i++){
+	 	 	var obj={
+	 	 		"ox": random(40,500),
+	 	 		"oy": random(40,300)
+	 	 	}
+	 	 	ary.push(obj);
+	 	 }
+
+	 	 //绘制点
+	 	 for(var i=0; i<ary.length; i++){
+	 	 	 ctx.beginPath()
+	 	 	 ctx.moveTo(ary[i].ox-square_w/2,ary[i].oy-square_w/2);
+	 	 	 ctx.lineTo(ary[i].ox-square_w/2+square_w,ary[i].oy-square_w/2);
+	 	 	 ctx.lineTo(ary[i].ox-square_w/2+square_w,ary[i].oy-square_w/2+square_w);
+	 	 	 ctx.lineTo(ary[i].ox-square_w/2,ary[i].oy-square_w/2+square_w);
+	 	 	 ctx.fill();
+	 	 }
+	 	 ctx.beginPath();
+	 	 //连线 
+	 	 for(var i=0; i<ary.length; i++){
+	 	 	 ctx.lineTo(ary[i].ox,ary[i].oy);
+	 	 }
+	 	 ctx.stroke();
+
+	 	 
+
+		//随机函数
+		function random (min,max){
+		  return Math.floor((max-min)*Math.random())+min;
+		}
+
+	 	 function draw_triangle(canvas,ctx){
+		 	 	var triangle_w=10,
+		 	 	 triangle_h=10;
+
+			 	 //开始绘制箭头
+			 	 ctx.moveTo(canvas.width-40, canvas.height-40);
+			 	 ctx.lineTo(canvas.width-40-triangle_h,canvas.height-40-triangle_w/2);
+			 	 ctx.lineTo(canvas.width-40-triangle_h,canvas.height-40+triangle_w/2);
+			 	 ctx.fillStyle="blue";
+
+			 	 ctx.moveTo(40,40);
+			 	 ctx.lineTo(40-triangle_w/2,40+triangle_h);
+			 	 ctx.lineTo(40-triangle_w/2+triangle_w,40+triangle_h);
+			 	 ctx.fill();
+	 	 }
+	 	 
+	 	 function draw_axes (pd_l,pd_r,pd_t,pd_b,ctx,canvas) {
+			 	 //绘制横坐标
+			 	 ctx.strokeStyle="blue";
+			 	 ctx.moveTo(pd_l,canvas.height-pd_b);
+			 	 ctx.lineTo(canvas.width-pd_r,canvas.height-pd_b);
+
+			 	 //绘制纵坐标
+			 	 ctx.moveTo(pd_l,canvas.height-pd_b);
+			 	 ctx.lineTo(pd_l,pd_t);
+			 	 ctx.stroke();
+	 	 }
+
+	 	 // 绘制网络
+	 	 function draw_table(width,ctx,canvas){
+		 	    //绘制横线
+		 	   //网格的宽度和高度
+		 	   //横线的数量
+		 	   var line_number=canvas.height/width;
+
+		 	   for(var i=0; i<line_number; i++ ){
+		 	   		 ctx.beginPath();
+		 	   		 ctx.strokeStyle="#ccc";
+		 	   		 ctx.moveTo(0,width*i);
+		 	   		 ctx.lineTo(canvas.width,width*i);
+		 	   		 ctx.stroke();
+		 	   }	
+
+		 	   //绘制竖线
+		 	   //竖线的数量
+		 	   var vertical_number=canvas.width/width;
+		 	   for(var i=0; i<vertical_number; i++){
+		 	   		ctx.beginPath();
+		 	   		ctx.moveTo(width*i,0);
+		 	   		ctx.lineTo(width*i,600);
+		 	   		ctx.stroke();
+		 	   }
+	 	 }
+
+
+	 </script>
+</body>
+</html>

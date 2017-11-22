@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 //1: 约定开始角的位置  -90
+	 	 var s_angle=-90;
+
+	 	 //2：生成饼图的数量
+	 	 var rnumber=random(3,6);
+	 	 var ary=[];
+
+	 	 //3: 确定数组中的每一个饼图的所占的份数
+	 	 for(var i=0; i<rnumber; i++){
+
+	 	 	ary.push(random(1,100));
+	 	 }
+
+	 	 //4： 求数组中的份数的总和
+	 	 
+	 	 var sum=0;
+	 	 for(var i=0; i<rnumber; i++){
+	 	 	sum+=ary[i];
+	 	 }
+
+
+	 	 //5: 创建一个用来接收随机获取到的角度数字
+	 	 var angle_ary=[];
+
+	 	 for(var i=0; i<rnumber; i++){
+	 	 	angle_ary.push(360*ary[i]/sum);
+	 	 }
+
+	 	 //准备好颜色
+	 	 var colors=["red","blue","yellow","#000","pink"];
+	 	 
+	 	 //6: 开始绘制饼图
+	 	 for(var i=0; i<angle_ary.length; i++ ){
+
+	 	 	 ctx.beginPath();
+	 	 	 ctx.moveTo(300, 200);
+	 	 	 ctx.fillStyle=colors[i];
+	 	 	 ctx.arc(300, 200, 100, aTor(s_angle), aTor(s_angle+=angle_ary[i]));
+	 	 	 ctx.fill();
+	 	 }
+
+	 	 function random ( min , max) {
+	 	 	return  Math.floor( (max-min)*Math.random() )+min;
+	 	 }
+
+	 	 function aTor ( angle ){
+
+	 	 	return angle*Math.PI/180;
+	 	 }
+
+	 </script>
+</body>
+</html>

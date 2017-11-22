@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+
+	 	     ctx.moveTo(300,200);
+
+	 	     //思路
+	 	     //
+	 	     // 开始 -90开始  每一个占120度
+	 	   		
+	 	    
+	 	     var start=-90;
+	 	     var step=120;
+
+	 	     ctx.arc(300,200,100,aTor( -90 ), aTor( -90+120 ));
+	 	     ctx.fill();
+	 	     ctx.beginPath();
+
+	 	     // 第二张饼
+	 	     ctx.moveTo(300,200);
+	 	     ctx.fillStyle="red";
+	 	     ctx.arc(300,200,100,aTor(-90+120),aTor(-90+120+120));
+	 	     ctx.fill();
+
+	 	     //第三张饼
+	 	     ctx.beginPath();
+	 	     ctx.moveTo(300,200);
+	 	     ctx.arc(300,200,100,aTor(-90+120+120),aTor(-90+120+120+120));
+	 	     ctx.fillStyle="blue";
+	 	     ctx.fill();
+
+
+
+	 	     
+
+	 	   function aTor ( angle ){
+
+	 	   	  return  angle*Math.PI/180;
+	 	   }
+	 </script>
+</body>
+</html>

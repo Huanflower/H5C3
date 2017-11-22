@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 //创建一个渐变方案
+	 	 var lgd=ctx.createLinearGradient(100,100,356,100);
+	 	 	 lgd.addColorStop(0,"rgb(0,0,255)");
+	 	 	 lgd.addColorStop(1,"rgb(255,0,0)");
+	 	 	 
+	 	     ctx.fillStyle=lgd;
+	 	     ctx.fillRect(100,100,256,100);
+	 </script>
+</body>
+</html>

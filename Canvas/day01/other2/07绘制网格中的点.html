@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		canvas {
+			 border: 1px solid #ccc;
+		}
+
+		div {
+			 width: 600px;
+			 height: 400px;
+			 margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div><canvas width="600" height="400"></canvas></div>
+	<script type="text/javascript">
+		var canvas=document.querySelector("canvas");
+		var ctx=canvas.getContext("2d");
+			ctx.strokeStyle="#ccc";
+
+		 //规定网络个大小
+		 var w_h=20;
+		 //开始绘制表格
+		 draw_table(canvas,w_h);
+		 //开始绘制坐标系
+		 ctx.beginPath();
+		 draw_xy(canvas);
+
+
+		 ctx.beginPath();
+		 //开始绘制点
+		 // var ox=130,
+		 // 	 oy=145;
+		 var point_w=6;
+		 var ary=[
+		 	{
+		 		"ox":200,
+		 		"oy":100
+		 	},{
+		 		"ox":300,
+		 		"oy":200
+		 	},{
+		 		"ox":100,
+		 		"oy":300
+		 	}
+		 ]
+
+		 for(var i=0;i<ary.length;i++){
+		 	 ctx.beginPath();
+		 	 ctx.moveTo(ary[i].ox-point_w/2,ary[i].oy-point_w/2);
+			 ctx.lineTo(ary[i].ox-point_w/2,ary[i].oy-point_w/2+point_w);
+			 ctx.lineTo(ary[i].ox-point_w/2+point_w,ary[i].oy-point_w/2+point_w);
+			 ctx.lineTo(ary[i].ox-point_w/2+point_w,ary[i].oy-point_w/2);
+			 ctx.lineTo(ary[i].ox-point_w/2,ary[i].oy-point_w/2);
+			 ctx.fill();
+		 }
+		 
+
+
+		 function draw_xy(canvas){
+		 	 ctx.strokeStyle="blue";
+			 var pd_l=40,
+			 	 pd_r=40,
+			 	 pd_t=40,
+			 	 pd_b=40;
+			 // 画布的宽高
+			 var width=canvas.width,
+			 	 height=canvas.height;
+
+			 ctx.moveTo(pd_l,height-pd_b);
+			 ctx.lineTo(width-pd_r,height-pd_b);
+			 ctx.moveTo(pd_l,height-pd_b);
+			 ctx.lineTo(pd_l,pd_t);
+			 ctx.stroke();
+			 ctx.beginPath();
+			  //绘制箭头
+			 ctx.moveTo(pd_l,pd_t);
+			 ctx.lineTo(pd_l-20,pd_t+20);
+			 ctx.lineTo(pd_l+20,pd_t+20);
+			 ctx.lineTo(pd_l,pd_t);
+			 ctx.fillStyle="blue";
+			 ctx.fill();
+
+			 ctx.beginPath();
+			 ctx.moveTo(width-pd_r,height-pd_b);
+			 ctx.lineTo(width-pd_r-20,height-pd_b-20);
+			 ctx.lineTo(width-pd_r-20,height-pd_b+20);
+			 ctx.fill();
+		 }
+		 function draw_table(canvas,w_h){
+		 	 //计算需要多少条横线 (画布的高度/网格的高度)
+			 var line_number=canvas.height/w_h;
+
+			 for(var i=0;i<line_number;i++){
+			 	ctx.beginPath();
+			 	ctx.moveTo(0,w_h*i);
+			 	ctx.lineTo(canvas.width,w_h*i);
+			 	ctx.stroke();
+			 }
+
+			 //计算需要多少条竖线 （画布的宽度/网格的宽度）
+			 var vertical_numebr=canvas.width/w_h;
+			 for(var i=0;i<vertical_numebr;i++){
+			 	 ctx.beginPath();
+			 	 ctx.moveTo(w_h*i,0);
+			 	 ctx.lineTo(w_h*i,400);
+			 	 ctx.stroke();
+			 }
+		 }
+	</script>
+</body>
+</html>

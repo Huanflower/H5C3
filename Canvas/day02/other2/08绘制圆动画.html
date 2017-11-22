@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+
+
+
+	 	 	//开始角 -90	    
+	 	    var s_angel=-90;
+	 	    var e_angel=-90;
+	 	    //每次画5度
+	 	    var angel_step=2;
+
+	 	    var id=setInterval(function(){
+	 	    	ctx.beginPath();
+	 	    	//先清屏
+	 	    	ctx.clearRect(0,0,canvas.width,canvas.height);
+	 	    	//绘制
+	 	    	ctx.moveTo(300,200);
+	 	    	ctx.arc(300,200,150,aTor(s_angel),aTor(e_angel));
+	 	    	ctx.fill();
+	 	    	e_angel+=angel_step;
+	 	    	if(e_angel>270){
+	 	    		 clearInterval(id);
+	 	    	}
+	 	    
+	 	    },16)
+	 	    function aTor(angle){
+	 	    	return angle*Math.PI/180;
+	 	    }	
+
+	 	    function rToa(radian){
+	 	    	return radian*180/Math.PI;
+	 	    }
+	 </script>
+</body>
+</html>

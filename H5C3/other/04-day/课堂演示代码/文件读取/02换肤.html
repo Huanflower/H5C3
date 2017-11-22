@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	 <input type="file">
+
+	 <script type="text/javascript">
+	 	
+	 	 var file_btn=document.querySelector("input");
+
+	 	     file_btn.onchange=function(){
+
+	 	     	 //获取文件
+	 	     	 var file=this.files[0];
+
+	 	     	 //获取文件名
+	 	     	 var file_name=file.name;
+	 	     	 //index.css
+	 	     	 	file_name=file_name.substring(file_name.lastIndexOf("."));
+
+				 if(file_name==".css"){
+
+				 	//开始创建读取器
+				 	var read=new FileReader();
+
+				 		read.readAsText(file);
+
+				 		read.onload=function(){
+
+				 			 var style=document.createElement("style");
+
+				 			 	style.innerHTML=read.result;
+
+				 			 document.querySelector("head").appendChild(style);
+				 		}
+				 }else {
+				 	 alert("文件错误");
+				 }	     	 	  
+	 	     	
+	 	     	 // console.log(file_name);
+
+	 	     }
+	 </script>
+</body>
+</html>

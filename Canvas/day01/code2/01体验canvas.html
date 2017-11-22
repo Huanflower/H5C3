@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	  
+	  <!-- 画布 -->
+	  <canvas></canvas>
+
+	  <script type="text/javascript">
+	  	  
+	  	  //获取到了画布
+	  	  var canvas=document.querySelector("canvas");
+	  	  //获取绘图工具（绘图上下文）
+	  	  var ctx=canvas.getContext("2d");
+	  	  // 	  console.log(ctx);
+	  	  //获取3d的绘图工具（绘图上下文）
+	  	  var ctx1=canvas.getContext("webgl");
+	  	      console.log(ctx1);
+
+	  	  // 注意：
+	  	  	 // 我们在获取绘图上下文的时候，一次只能获取一种绘图方式
+	  	  
+
+	  </script>
+</body>
+</html>

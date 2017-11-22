@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	     ctx.moveTo(300,200);
+
+	 	 // 饼的角度
+	 	 var ary_step=[30,60,90,180];
+
+	 	 var stat=-90;
+
+	 	 //饼的颜色
+	 	 var colors=["red","green","blue","yellow"];
+
+	 	 for( i=0; i<ary_step.length; i++) {
+	 	 	 ctx.beginPath();
+	 	 	 ctx.moveTo(300,200);
+	 	 	 ctx.arc(300,200,100,aTor(stat),aTor(stat+=ary_step[i]));
+	 	 	 ctx.fillStyle=colors[i];
+	 	 	 ctx.fill();
+	 	 }
+
+
+	 	 function aTor ( angle ) {
+
+	 	 	return angle*Math.PI/180;
+	 	 }
+	 </script>
+</body>
+</html>

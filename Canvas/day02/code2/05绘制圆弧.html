@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+
+	 	 	 //  x  圆心位置    y 圆心的纵坐标  radius 半径
+	 	 	 //  
+	 	 	 //  startAngle 开始的弧度
+	 	 	 //  
+	 	 	 //  endAngle   结束的弧度
+	 	 	 //  
+	 	 	 //  anticlockwise  绘制的方向   false(默认值)【顺时针】  true 【逆时针绘制】
+	 	 	  
+	 	     // ctx.arc(x, y, radius, startAngle, endAngle, anticlockwise)
+	 	     
+
+	 	     //先找到画布的中心位置
+	 	     
+	 	     ctx.moveTo(300,0);
+	 	     ctx.lineTo(300, 400);
+
+	 	     ctx.moveTo(0, 200);
+	 	     ctx.lineTo(600, 200);
+	 	     ctx.stroke(); 
+
+	 	     //绘制圆
+	 	     ctx.beginPath();
+	 	     ctx.arc(300, 200, 100, 0, aTor(360));
+	 	     ctx.stroke();
+
+
+
+
+	 	 function aTor ( angle ) {
+
+	 	 	 return  angle*Math.PI/180;
+	 	 }
+	 	    
+	 </script>
+</body>
+</html>

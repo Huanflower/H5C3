@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	   ctx.font="30px 微软雅黑";
+	 	   // ctx.fillText("恭喜十九大顺利结束", 300, 200);
+
+	 	   //获取在当前设置文字大小下的宽度
+	 	  var width= ctx.measureText("恭喜");
+
+	 	   console.log(width);
+	 </script>
+</body>
+</html>

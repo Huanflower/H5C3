@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	 <input type="file">
+
+	 <script type="text/javascript">
+	 	
+	 	//1. 先获取控件
+	 	var file_btn=document.querySelector("input");
+
+	 		file_btn.onchange=function(){
+	 			
+	 			//获取当前上传的文件
+	 			var file=this.files[0];
+	 			//创建一个读取器
+	 			var read=new FileReader();
+	 			//开始读取文件
+	 			    read.readAsText(file);
+	 			//获取读取结果,在文件读取操作完成后
+	 			read.onload=function(){
+					 console.log(read.result);
+	 			}
+
+	 			//result  获取读取结果
+	 			//onload  读取的事件
+	 			//readAsText(file)    以文本的形式读取文件
+	 			//readAsDataURL(file) 以文件路径的形式
+	 		}
+	 </script>
+
+</body>
+</html>

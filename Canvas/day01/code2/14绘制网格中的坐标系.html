@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 //确定坐标系位置
+	 	 
+	 	 var pd_l=50,
+	 	 	 pd_r=50,
+	 	 	 pd_t=50,
+	 	 	 pd_b=50;
+
+	 	 //开始绘制横坐标
+	 	 ctx.moveTo(pd_l,canvas.height-pd_b);
+	 	 ctx.lineTo(canvas.width-pd_r,canvas.height-pd_b);
+	 	 ctx.stroke();
+
+	 	 //开启新的图层绘制纵坐标
+	 	 ctx.beginPath();
+	 	 ctx.moveTo(pd_l,canvas.height-pd_b);
+	 	 ctx.lineTo(pd_l,pd_t);
+	 	 ctx.stroke();
+
+	 	 //开始绘制三角形
+	 	 ctx.beginPath();
+	 	 var t_width=10,
+	 	 	 t_height=10;
+
+	 	 ctx.moveTo(pd_l,pd_t);
+	 	 ctx.lineTo(pd_l-t_width/2,pd_t+t_height);
+	 	 ctx.lineTo(pd_l-t_width/2+t_width,pd_t+t_height);
+	 	 ctx.fill();
+
+	 	 ctx.beginPath();
+	 	 ctx.moveTo(canvas.width-pd_r,canvas.height-pd_b);
+	 	 ctx.lineTo(canvas.width-pd_r-t_height,canvas.height-pd_b-t_width/2);
+	 	 ctx.lineTo(canvas.width-pd_r-t_height,canvas.height-pd_b+t_width/2);
+	 	 ctx.fill();
+
+
+
+
+
+	 </script>
+</body>
+</html>

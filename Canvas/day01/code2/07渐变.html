@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 for(var i=0; i<=255; i++){
+	 	 	 ctx.beginPath();
+	 	 	 ctx.moveTo(i,0);
+	 	 	 ctx.lineTo(i,100);
+	 	 	 ctx.strokeStyle="rgb(0,0,"+i+")";
+	 	 	 ctx.stroke();
+	 	 }
+
+
+	 </script>
+</body>
+</html>

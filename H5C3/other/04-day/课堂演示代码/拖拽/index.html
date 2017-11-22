@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box {
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+
+		span {
+			 width: 60px;
+			 height: 60px;
+			 display: block;
+			 background-color: red;
+		}
+	</style>
+</head>
+<body>
+	  <div class="box"></div>
+
+	  <span id="span_id" draggable="true"></span>
+
+	  <script type="text/javascript">
+	  		
+	  		//1.首先将元素设置为可拖拽的元素，元素设置draggable=true
+	  		
+	  		//2.当span元素被拖拽的时候，会触发一个事件 ondragstart
+	  		var span=document.querySelector("span");
+	  			span.ondragstart=function(e){
+	  				 //通过setData将span标签的id值保存起来
+	  				 e.dataTransfer.setData("text","span_id");
+	  			}
+	  		//3.当容器在接收拖拽元素span的时候，该容器也会触发一个事件 ondrop
+	  		 var box=document.querySelector(".box");
+	  		 	 box.ondrop=function(e){
+	  		 	 	//获取拖拽元素的信息
+	  		 	 	var span_id=e.dataTransfer.getData("text");
+	  		 	 	var span=document.getElementById(span_id);
+	  		 	 	//将拖拽元素span添加到容器中
+	  		 	 	e.target.appendChild(span);
+	  		 	 }
+	  		//4.当拖拽动作结束后，容器会触发一个事件 ondragover
+	  			box.ondragover=function(e){
+
+	  				//允许当前容器接收元素
+	  				e.preventDefault();
+	  			}
+
+
+	  </script>
+</body>
+</html>

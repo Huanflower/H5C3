@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 //矩形的开始位置横坐标
+	 	 var s_x=0;
+	 	 //矩形每次移动的距离
+	 	 var step=2;
+
+	 	 // 当前矩形的宽度
+	 	 var width=200;
+
+	 	 var n=1;
+	 	 //定时器
+	 	 setInterval(function(){
+
+	 	 	 // 第一步： 先清空画布
+	 	 	 ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+	 	 	 // 2 ： 开始绘图
+	 	 	 ctx.fillRect(s_x, 100, 200, 100);
+
+	 	 	 // 3: 处理增量
+	 	 	 s_x+=step*n;
+
+	 	 	 if(s_x>canvas.width-width) {
+	 	 	 	  n=-1;
+	 	 	 }else if(s_x <0){
+	 	 	 	 n=1;
+	 	 	 }else{}
+
+	 	 },20)
+
+	 </script>
+</body>
+</html>

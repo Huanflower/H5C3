@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 //随机生成 1-5个饼状图
+	 	 var rnumber=random(2,6);
+	 	 var ary=[];
+	 	 
+	 	 for( var i=0; i<rnumber; i++) {
+
+	 	 	 ary[i]=random(1,100);
+	 	 }
+
+	 	 //创建一个颜色库
+	 	 var colors=["red","green","blue","yellow","pink","yellowgreen","#000","#ccc","#999","#bbb"];
+
+	 	
+	 	 //求数组中的和
+	 	 var sum=0;
+	 	 for (var i=0;i<ary.length; i++){
+	 	 	sum+=ary[i];
+	 	 }
+	 	 //获取对应生成的随机数转角度
+	 	 //随机数:角度=总和:360
+	 	 var angle=[];
+	 	 for(var i=0; i<ary.length; i++){
+
+	 	 	 angle.push(ary[i]*360/sum);
+	 	 }
+
+	 	 //开始绘制饼形图
+	 	 var s_angel=-90;
+	 	 for(var i=0; i<angle.length; i++ ){
+	 	 	 ctx.beginPath();
+	 	 	 ctx.moveTo(300,200);
+	 	 	 ctx.fillStyle=colors[i];
+	 	 	 ctx.arc(300,200,100,aTor(s_angel),aTor(s_angel+=angle[i]));
+	 	 	 ctx.fill();
+	 	 }
+	 	 function aTor ( angle ){
+
+	 	 	return angle*Math.PI/180;
+	 	 }
+
+	 	 function random ( min, max ) {
+	 	 	 return  Math.floor( (max-min)*Math.random() )+min;
+	 	 }
+	 </script>
+</body>
+</html>

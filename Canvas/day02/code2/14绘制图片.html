@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+
+	<!--  <img src="" alt=""> -->
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+
+
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	 //1： 首先我要拿到一张图片
+	 	 //1.1 可以在页面中通过放置一个img标签来获取
+	 	 //1.2 通过创建图片标签的对象获取 var img=new Image();
+	 	 
+	 	 //先创建一个img对象
+	 	 var img=new Image();
+
+	 	 	 img.src="./3.jpg";
+
+	 	 //开始绘制
+	 	 
+	 	 img.onload=function(){
+
+	 	 	 //切记： 一定要在图片加载完成后，才能开始绘制图片
+	 	 	 // ctx.drawImage(img, 50, 50);
+	 	 	var width=this.width;
+	 	 	var height=this.height;
+
+	 	 	 ctx.drawImage(img, 100, 100 , 400, height*400/width);
+	 	 	 
+	 	 	 // ctx.drawImage(img, 805, 27, 388, 313, 50, 50, 388, 313);
+	 	 }
+
+
+	 	 //图片的实际宽度：图片实际的高度=绘制的宽度： 绘制的高度
+	 	
+	 	
+	 	 
+	 </script>
+</body>
+</html>

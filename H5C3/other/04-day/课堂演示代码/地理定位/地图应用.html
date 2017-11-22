@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- 记的设置秘钥 -->
+	<script src="http://api.map.baidu.com/api?v=2.0&ak=rFwb7Ow6y08zThgDXpGoovvtNIKkQIQO" type="text/javascript"></script>
+
+
+	<style type="text/css">
+		
+		div {
+			 width: ;
+			 height: 
+		}
+	</style>
+
+</head>
+<body>
+	<div id="allmap"></div>
+
+
+	<script type="text/javascript">
+
+		window.navigator.geolocation.getCurrentPosition(success,error);
+		//能够获取当前位置
+		function success(position){
+
+			//获取到当前的纬度
+			var latitude=position.coords.latitude; 
+
+			//经度
+			var longitude=position.coords.longitude
+
+			// 百度地图API功能
+			var map = new BMap.Map("allmap");
+			var point = new BMap.Point(longitude,latitude);
+			//地图的缩放
+			map.centerAndZoom(point, 15);
+			
+			//创建小狐狸
+			var pt = point;
+			var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
+			var marker2 = new BMap.Marker(pt,{icon:myIcon}); 
+			//创建标注
+			map.addOverlay(marker2);  
+		}
+
+		function error(msg){
+
+		}
+		
+		   
+	</script>
+</body>
+</html>

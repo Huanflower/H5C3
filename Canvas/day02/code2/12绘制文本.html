@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+	 	    ctx.moveTo(300,0);
+	 	    ctx.lineTo(300, 400);
+
+	 	    ctx.moveTo(0, 200);
+	 	    ctx.lineTo(600,200);
+
+	 	    ctx.stroke();
+
+	 	    ctx.beginPath();
+
+	 	    //绘制填充文本
+	 	    
+	 	    //设置文字的样式
+	 	    ctx.font="30px 微软雅黑";
+
+	 	    //设置文字的水平对齐方式
+	 	    // ctx.textAlign="left";
+	 	    // ctx.textAlign="right";
+	 	       ctx.textAlign="center";
+
+	 	    //设置文字的垂直对齐方式
+	 	    	
+	 	       // ctx.textBaseline="top";
+	 	      // ctx.textBaseline="bottom";
+	 	       	 ctx.textBaseline="middle";
+	 	    
+
+	 	    // ctx.fillText("恭喜十九大顺利结束", 300, 200);
+	 	    
+	 	    // 绘制镂空的文字
+	 	    ctx.strokeText("恭喜十九大顺利结束", 300, 200);
+
+	 	    
+
+
+
+	 </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		canvas {
+			 border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	 <canvas width="600" height="400"></canvas>
+	 <script type="text/javascript">
+	 	 //获取canvas画布对象
+	 	 var canvas =document.querySelector("canvas");
+	 	 //获取绘图上下文
+	 	 var ctx=canvas.getContext("2d");
+
+
+	 	  //确定坐标系位置
+	 	 
+	 	 var pd_l=50,
+	 	 	 pd_r=50,
+	 	 	 pd_t=50,
+	 	 	 pd_b=50;
+
+	 	 //开始绘制横坐标
+	 	 ctx.moveTo(pd_l,canvas.height-pd_b);
+	 	 ctx.lineTo(canvas.width-pd_r,canvas.height-pd_b);
+	 	 ctx.stroke();
+
+	 	 //开启新的图层绘制纵坐标
+	 	 ctx.beginPath();
+	 	 ctx.moveTo(pd_l,canvas.height-pd_b);
+	 	 ctx.lineTo(pd_l,pd_t);
+	 	 ctx.stroke();
+
+	 	 //开始绘制三角形
+	 	 ctx.beginPath();
+	 	 var t_width=10,
+	 	 	 t_height=10;
+
+	 	 ctx.moveTo(pd_l,pd_t);
+	 	 ctx.lineTo(pd_l-t_width/2,pd_t+t_height);
+	 	 ctx.lineTo(pd_l-t_width/2+t_width,pd_t+t_height);
+	 	 ctx.fill();
+
+	 	 ctx.beginPath();
+	 	 ctx.moveTo(canvas.width-pd_r,canvas.height-pd_b);
+	 	 ctx.lineTo(canvas.width-pd_r-t_height,canvas.height-pd_b-t_width/2);
+	 	 ctx.lineTo(canvas.width-pd_r-t_height,canvas.height-pd_b+t_width/2);
+	 	 ctx.fill();
+
+
+	 	 //开始绘制点
+	 	 ctx.beginPath();
+
+	 	 //假设圆点的位置是在 （200,50）
+	 	 // var ox=200,
+	 	 // 	 oy=50;
+
+	 	 //假设正方向形的边长是10
+	 	 var s_w_h=10;
+
+
+
+	 	 //首先要确定生成多少个点 3-9
+	 	 var nm=random(3,9);
+
+	 	 //确定数组的大小
+	 	 var ary=[];
+
+	 	 //点
+	 	 for(var i=0; i<nm; i++ ){
+
+	 	 	var obj={
+	 	 		"ox":random(100,500),
+	 	 		"oy":random(100,300)
+	 	 	}
+
+	 	 	ary.push(obj);
+
+	 	 }
+
+
+	 	//开始绘制随机点到画布中
+	 	for(var i=0; i<ary.length; i++){
+
+	 		 ctx.moveTo(ary[i].ox-s_w_h/2,ary[i].oy-s_w_h/2);
+		 	 ctx.lineTo(ary[i].ox+s_w_h/2,ary[i].oy-s_w_h/2);
+		 	 ctx.lineTo(ary[i].ox+s_w_h/2,ary[i].oy+s_w_h/2);
+		 	 ctx.lineTo(ary[i].ox-s_w_h/2,ary[i].oy+s_w_h/2);
+		 	 ctx.closePath();
+		 	 ctx.fill();
+	 	}
+
+
+	 	 //确定随机的范围
+	 	 function random( min,max ){
+
+	 	 	 return  Math.floor(Math.random()*(max-min))+min;
+	 	 }
+
+	 </script>
+</body>
+</html>

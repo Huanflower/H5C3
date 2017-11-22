@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		 .box {
+		 	  width: 200px;
+		 	  height: 200px;
+		 	  border: 15px solid red;
+
+			  /* 复合属性 */
+		 	  /* border-image: ; */
+
+			  /* 设置边框图片路径 */
+		 	  border-image-source: url("border.png");
+
+		 	  /* 边框图片分割（9宫格） */
+
+		 	  border-image-slice: 28 28 28 28 fill;
+
+		 	  /* 设置边框图片的平铺方式  stretch*/
+		 	  border-image-repeat: stretch;
+
+		 	  /* 边框图片平铺 */
+		 	  border-image-repeat: repeat;
+				
+			  /* 将边框图片完整的显示出来 */
+		 	  border-image-repeat: round;
+
+
+		 	  /* 设置边框宽度 */
+		 	  border-image-width: 28px;
+		 }
+	</style>
+</head>
+<body>
+	
+
+		 <div class="box"></div>
+</body>
+</html>

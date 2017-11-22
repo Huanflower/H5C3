@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	
+	 <div class="one" id="two" data-pwd-my="123"  data-nametest="abc"></div>
+
+
+	 <script type="text/javascript">
+	 	
+	 	 var box=document.querySelector(".one");
+
+	 	 // var value=box.getAttribute("class");
+
+	 	 // 		   // box.getAttribute("id");
+
+	 	 var list=box.dataset;
+
+	 	 	 
+	 	 	 // 设置自定义属性
+	 	 	 list.test="abcd";
+	 	 	 list.myAge="25";
+
+
+	 	 console.log(list.pwdMy);
+	 </script>
+
+</body>
+</html>

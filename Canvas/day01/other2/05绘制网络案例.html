@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		
+		canvas {
+			 border: 1px solid #ccc;
+		}
+
+		div {
+			 width: 600px;
+			 height: 400px;
+			 margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div><canvas width="600" height="400"></canvas></div>
+	<script type="text/javascript">
+		var canvas=document.querySelector("canvas");
+		var ctx=canvas.getContext("2d");
+			ctx.strokeStyle="#ccc";
+		 //规定网络个大小
+		 var w_h=20;
+
+		 //计算需要多少条横线 (画布的高度/网格的高度)
+		 var line_number=canvas.height/w_h;
+
+		 for(var i=0;i<line_number;i++){
+		 	ctx.beginPath();
+		 	ctx.moveTo(0,w_h*i);
+		 	ctx.lineTo(canvas.width,w_h*i);
+		 	ctx.stroke();
+		 }
+
+		 //计算需要多少条竖线 （画布的宽度/网格的宽度）
+		 var vertical_numebr=canvas.width/w_h;
+		 for(var i=0;i<vertical_numebr;i++){
+		 	 ctx.beginPath();
+		 	 ctx.moveTo(w_h*i,0);
+		 	 ctx.lineTo(w_h*i,400);
+		 	 ctx.stroke();
+		 }
+	</script>
+</body>
+</html>
